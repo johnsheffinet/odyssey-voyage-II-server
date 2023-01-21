@@ -8,7 +8,8 @@
     "node": ">=14.0.0 <=18"
   },
   "scripts": {
-    "start": "nodemon index.js",
+    "prestart": "npm config set script-shell \"/bin/bash\" && source ../router/.env"
+    "start": "nodemon index.js & npm run launch",
     "launch": "node utils/launch.js",
     "postinstall": "npm run install-services",
     "install-services": "node utils/install.js",
