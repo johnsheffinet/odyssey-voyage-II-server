@@ -32,7 +32,7 @@ async function startApolloServer() {
 
         let userInfo = {};
         if (userId) {
-          const { data } = await axios.get(`http://localhost:4011/login/${userId}`).catch((error) => {
+          const { data } = await axios.get(`process.env.LOCALHOST_4011_URL/login/${userId}`).catch((error) => {
             throw AuthenticationError();
           });
 
