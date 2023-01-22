@@ -8,7 +8,7 @@
     "node": ">=14.0.0 <=18"
   },
   "scripts": {
-    "prestart": "npm config set script-shell \"/bin/bash\" && source ../router/.env",
+    "prestart": "npm config set script-shell \"/bin/bash\" && source ../router/.env && rover subgraph publish $APOLLO_GRAPH_REF --name monolith  --schema ./schema.graphql --routing-url $LOCALHOST_4001_URL --convert",
     "start": "nodemon index.js & npm run launch",
     "launch": "node utils/launch.js",
     "postinstall": "npm run install-services",
@@ -25,6 +25,7 @@
     "@apollo/datasource-rest": "^4.3.2",
     "@apollo/server": "^4.0.1",
     "@apollo/subgraph": "^2.2.3",
+    "@apollo/rover": "^0.10.0",
     "apollo-datasource": "^3.1.0",
     "axios": "^0.27.2",
     "concurrently": "^6.3.0",
