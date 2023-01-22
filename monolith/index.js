@@ -26,7 +26,7 @@ async function startApolloServer() {
     }),
   });
 
-  const port = 4000;
+  const port = 4001;
 
   try {
     const { url } = await startStandaloneServer(server, {
