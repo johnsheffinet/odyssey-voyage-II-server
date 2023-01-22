@@ -16,10 +16,16 @@ const ListingsAPI = require('./datasources/listings');
 const AccountsAPI = require('./datasources/accounts');
 const PaymentsAPI = require('./datasources/payments');
 
+const { buildSubgraphSchema } = require('@apollo/subgraph');
+
 async function startApolloServer() {
   const server = new ApolloServer({
-    typeDefs,
-    resolvers,
+    schema: {
+      buildSubgraphSchema(
+        typeDefs,
+        resolvers,
+      )
+    }
   });
 
   const port = 4000;
