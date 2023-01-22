@@ -20,12 +20,10 @@ const { buildSubgraphSchema } = require('@apollo/subgraph');
 
 async function startApolloServer() {
   const server = new ApolloServer({
-    schema: {
-      buildSubgraphSchema(
+    schema: buildSubgraphSchema({
         typeDefs,
         resolvers,
-      )
-    }
+    }),
   });
 
   const port = 4000;
